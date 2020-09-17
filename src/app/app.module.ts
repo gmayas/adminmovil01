@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from './guards/auth.guard';
+import { ConceptosComponent } from './components/catalogos/conceptos/conceptos.component';
+import { UsersComponent } from './components/catalogos/users/users.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { AuthGuard } from './guards/auth.guard';
     NavbarComponent,
     AdminComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ConceptosComponent,
+    UsersComponent
   
   ],
   imports: [
