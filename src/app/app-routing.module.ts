@@ -11,6 +11,7 @@ import { ConceptosComponent } from './components/catalogos/conceptos/conceptos.c
 import { UsersComponent } from './components/catalogos/users/users.component';
 import { ContabilidadComponent } from './components/contabilidad/contabilidad.component';
 import { RecursoshumanosComponent } from './components/recursoshumanos/recursoshumanos.component';
+import { AboutComponent } from './components/about/about.component';
 
 const routes: Routes = [
   { path: '', component:  HomeComponent },
@@ -20,7 +21,7 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent, canActivate: [AuthGuard]  },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]  },
   { path: 'conta', component: ContabilidadComponent, canActivate: [AuthGuard]  },
-  { path: 'rh', component: RecursoshumanosComponent, canActivate: [AuthGuard]  },
+  { path: 'about', component: AboutComponent, canActivate: [AuthGuard]  },
 
 ];
 

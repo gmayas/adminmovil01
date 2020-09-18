@@ -19,6 +19,7 @@ import { ConceptosComponent } from './components/catalogos/conceptos/conceptos.c
 import { UsersComponent } from './components/catalogos/users/users.component';
 import { ContabilidadComponent } from './components/contabilidad/contabilidad.component';
 import { RecursoshumanosComponent } from './components/recursoshumanos/recursoshumanos.component';
+import { AboutComponent } from './components/about/about.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { RecursoshumanosComponent } from './components/recursoshumanos/recursosh
     ConceptosComponent,
     UsersComponent,
     ContabilidadComponent,
-    RecursoshumanosComponent
+    RecursoshumanosComponent,
+    AboutComponent
   
   ],
   imports: [

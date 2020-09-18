@@ -19,16 +19,51 @@
       </li>
       <li *ngIf="(auth.isAuthenticated() | async)" class="dropdown show">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-          aria-expanded="false">ERP</a>
+          aria-expanded="false">Administración</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="admin">Administración</a>
-          <a class="dropdown-item" href="conta">Contabilidad</a>
-          <a class="dropdown-item" href="rh">Recursos humanos</a>
+          <a class="dropdown-item" href="admin">Action</a>
+          <a class="dropdown-item" href="admin">Another action</a>
+          <a class="dropdown-item" href="admin">Something else here</a>
           <div class="dropdown-divider"></div>
-          <div class="dropdown-header">Catalogos</div>
+          <a class="dropdown-item" href="admin">Separated link</a>
+        </div>
+      </li>
+      <li *ngIf="(auth.isAuthenticated() | async)" class="dropdown show">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+          aria-expanded="false">Contabilidad</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="conta">Action</a>
+          <a class="dropdown-item" href="conta">Another action</a>
+          <a class="dropdown-item" href="conta">Something else here</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="conta">Separated link</a>
+        </div>
+      </li>
+      <li *ngIf="(auth.isAuthenticated() | async)" class="dropdown show">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+          aria-expanded="false">Recursos humanos</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="rh">Action</a>
+          <a class="dropdown-item" href="rh">Another action</a>
+          <a class="dropdown-item" href="rh">Something else here</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="rh">Separated link</a>
+        </div>
+      </li>
+      <li *ngIf="(auth.isAuthenticated() | async)" class="dropdown show">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+          aria-expanded="false">Catalogos</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="admin">Action</a>
+          <a class="dropdown-item" href="conta">Another action</a>
+          <a class="dropdown-item" href="rh">Something else here</a>
+          <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="conceptos">Conceptos</a>
           <a class="dropdown-item" href="users">Usuarios</a>
         </div>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="about">About</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
