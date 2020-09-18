@@ -1,7 +1,7 @@
 import { Component, OnInit , OnDestroy, OnChanges } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import {takeWhile} from "rxjs/operators";
+import { takeWhile } from "rxjs/operators";
 
 @Component({
   selector: 'app-navbar',

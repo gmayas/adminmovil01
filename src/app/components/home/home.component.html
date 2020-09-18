@@ -9,10 +9,16 @@
    <div class="jumbotron-full-bg">
         <br><br><br><br>
         <div class="container" style="text-align:start">
-          <h1 class="display-3">Hola.</h1>
-          <p class="lead">Bienvenido a nuestro sistema.</p>
-          <hr class="my-4">
-          <p>Si desea tener acceso, registrate o inicia sesión.</p>
+          <div *ngIf="( auth.isAuthenticated() | async )" >
+            <h1 *ngIf="( user | async )" class="display-3"> Hola {{ (user | async)?.nameuser | titlecase}}.</h1>
+            <p class="lead">Bienvenido a nuestro sistema.</p>
+          </div>
+          <div *ngIf="!( auth.isAuthenticated() | async )">
+            <h1 class="display-3">Hola.</h1>
+            <p class="lead">Bienvenido a nuestro sistema.</p>
+            <hr class="my-4">
+            <p>Si desea tener acceso, registrate o inicia sesión.</p>
+          </div>
           <br><br><br><br><br><br><br>
           <br><br>
         </div>

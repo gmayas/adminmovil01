@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from './guards/auth.guard';
 import { ConceptosComponent } from './components/catalogos/conceptos/conceptos.component';
 import { UsersComponent } from './components/catalogos/users/users.component';
+import { ContabilidadComponent } from './components/contabilidad/contabilidad.component';
+import { RecursoshumanosComponent } from './components/recursoshumanos/recursoshumanos.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { UsersComponent } from './components/catalogos/users/users.component';
     LoginComponent,
     RegisterComponent,
     ConceptosComponent,
-    UsersComponent
+    UsersComponent,
+    ContabilidadComponent,
+    RecursoshumanosComponent
   
   ],
   imports: [

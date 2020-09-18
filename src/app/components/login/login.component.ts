@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
               timeOut: 10000,
               positionClass: 'toast-bottom-right'
             });
-            this.router.navigate(['admin']);
+            this.router.navigate(['']);
           },
           error => {
             this.toastr.error('Error login', 'Aviso de Angular 9', {
