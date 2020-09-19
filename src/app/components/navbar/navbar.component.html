@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="">Admin Movil</a>
+  <a class="navbar-brand" href="">
+    <i class="fa fa-building-o mr-2" aria-hidden="true"></i>Admin Movil<i class="fa fa-mobile ml-2" aria-hidden="true"></i></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
     aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,7 +8,7 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="">Home</a>
+        <a class="nav-link" href=""><i class="fa fa-home mr-2" aria-hidden="true"></i>Home</a>
       </li>
       <!--
       <li *ngIf="(auth.isAuthenticated() | async)" class="nav-item active">
@@ -15,7 +16,7 @@
       </li>
        -->
       <li *ngIf="!(auth.isAuthenticated() | async)" class="nav-item active">
-        <a class="nav-link" href="register">Register</a>
+        <a class="nav-link" href="register"><i class="fa fa-user-circle mr-2" aria-hidden="true"></i>Register</a>
       </li>
       <li *ngIf="(auth.isAuthenticated() | async)" class="dropdown show">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -63,7 +64,7 @@
         </div>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="about">About</a>
+        <a class="nav-link" href="about"><i class="fa fa-info-circle mr-2" aria-hidden="true"></i>About</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -72,9 +73,11 @@
       </div>
       <div class="btn-group">
         <button *ngIf="!(auth.isAuthenticated() | async)" type="button" (click)="entrar()"
-          class="btn btn-warning my-2 my-sm-0">Entrar</button>
+          class="btn btn-warning">
+          <i class="fa fa-sign-in mr-1" aria-hidden="true"></i>
+          Entrar</button>
         <button *ngIf="(auth.isAuthenticated() | async)" type="button" (click)="salir()"
-          class="btn btn-danger my-2 my-sm-0">Salir</button>
+          class="btn btn-danger">Salir<i class="fa fa-sign-out ml-2" aria-hidden="true"></i></button>
       </div>
     </form>
   </div>
