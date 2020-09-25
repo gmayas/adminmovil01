@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { interval } from 'rxjs';
 import { takeWhile } from "rxjs/operators";
 import { environment } from 'src/environments/environment';
 import { GoogleMap } from '@angular/google-maps';
+import { AuthService } from 'src/app/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 //import { UsersService } from 'src/app/services/users.service';
 import * as _ from "lodash";
@@ -11,13 +12,13 @@ import { ToastrService } from 'ngx-toastr';
 import { first } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-map',
+  templateUrl: './map.component.html',
+  styleUrls: ['./map.component.css']
 })
-export class HomeComponent implements OnInit, OnDestroy, OnChanges {
+export class MapComponent implements OnInit, OnDestroy, OnChanges {
   // Create an Observable that will publish a value on an interval
-  //public secondsCounter: any = interval(5000);
+  public secondsCounter: any = interval(5000);
   //
   public uluru: any;
   public uluruA: any;
@@ -28,20 +29,15 @@ export class HomeComponent implements OnInit, OnDestroy, OnChanges {
   public user: any;
   public Vehicles: any
 
-  constructor(public auth: AuthService, private google: GoogleMap) {
-    this.auth.isAuthenticated()
-      .pipe(takeWhile(() => this.alive))
-      .takeUntil(this.auth.isSigningOut())
-      .subscribe((isAuth: any) => {
-        this.isAuth = isAuth;
-      });
-  }
-
-  ngOnChanges(): void {
+  constructor(public auth: AuthService, 
+    private router: Router, private toastr: ToastrService, private google: GoogleMap) {
     this.user = this.auth.user();
+    console.log('this.user.id: ', _.get(this.user.value, 'id'))
+   // this.getUserVehicle(null);
+   //this.initMap();
   }
-   // Initialize and add the map
-   initMap() {
+  // Initialize and add the map
+  initMap() {
     try {
       let pos; String
       // Try HTML5 geolocation.
@@ -53,7 +49,7 @@ export class HomeComponent implements OnInit, OnDestroy, OnChanges {
             lng: position.coords.longitude
           };
           console.log(this.uluru)
-          this.map = new google.maps.Map(document.getElementById('map2') as HTMLElement , {
+          this.map = new google.maps.Map(document.getElementById('map') as HTMLElement , {
             center: this.uluru,
             zoom: 5
           });
@@ -86,14 +82,24 @@ export class HomeComponent implements OnInit, OnDestroy, OnChanges {
     infoWindow.open(this.map);
   }
 
- 
+
   ngOnInit() {
     this.initMap()
-    this.user = this.auth.user();
   }
 
   ngOnDestroy() {
     this.alive = false;
   }
 
+  ngOnChanges() {
+    this.user = this.auth.user();
+  }
+
+ 
+  // Retorna un entero aleatorio entre min (incluido) y max (excluido)
+  // ¡Usando Math.round() te dará una distribución no-uniforme!
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
 }
+

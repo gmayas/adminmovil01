@@ -9,23 +9,24 @@
 
 <body>
   <div class="jumbotron-full-bg">
-    <br><br><br><br>
     <div class="container" style="text-align:start">
-      <div *ngIf="( auth.isAuthenticated() | async )">
+      <div class="mt-4" *ngIf="( auth.isAuthenticated() | async )">
         <h1 *ngIf="( user | async )" class="display-3"> Hola {{ (user | async)?.nameuser | titlecase}}.</h1>
         <p class="lead">Bienvenido a nuestro sistema.</p>
+        <hr class="my-3">
       </div>
-      <div *ngIf="!( auth.isAuthenticated() | async )">
+      <div class="mt-3" *ngIf="!( auth.isAuthenticated() | async )">
         <h1 class="display-3">Hola.</h1>
         <p class="lead">Bienvenido a nuestro sistema.</p>
-        <hr class="my-4">
+        <hr class="my-3">
         <p>Si desea tener acceso, registrate o inicia sesión.</p>
+        <hr class="my-3">
       </div>
-      <br><br><br><br><br><br><br>
-      <br><br>
+      <div id="map2"></div>
+      <hr class="my-3">
     </div>
   </div>
-  <div class="footer-copyright text-center text-white-50 ">© 2020 Copyright:
+  <div class="footer-copyright text-center text-white-50">© 2020 Copyright:
     <a> GMayaS C:\>Desarrollo en Sistemas.</a>
   </div>
 </body>

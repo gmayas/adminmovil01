@@ -20,3 +20,27 @@
      align-items: center;
 }
 
+
+#map > div > div > div > div > div > div > div > div > div > div > div > div
+{
+    font-weight: bold;
+    color: blue;
+}
+
+
+/* Set the size of the div element that contains the map */
+#map2 {
+  height: 250px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#map2 > div > div > div > div > div > div > div > div > div > div > div > div
+{
+ font-weight: bold;
+ color: blue;
+}
+
+

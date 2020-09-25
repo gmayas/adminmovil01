@@ -12,6 +12,7 @@ import { UsersComponent } from './components/catalogos/users/users.component';
 import { ContabilidadComponent } from './components/contabilidad/contabilidad.component';
 import { RecursoshumanosComponent } from './components/recursoshumanos/recursoshumanos.component';
 import { AboutComponent } from './components/about/about.component';
+import { MapComponent } from './components/map/map.component';
 
 const routes: Routes = [
   { path: '', component:  HomeComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent, canActivate: [AuthGuard]  },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]  },
   { path: 'conta', component: ContabilidadComponent, canActivate: [AuthGuard]  },
+  { path: 'map', component: MapComponent, canActivate: [AuthGuard]  },
   { path: 'about', component: AboutComponent  },
 
 ];

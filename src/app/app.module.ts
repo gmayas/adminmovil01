@@ -20,7 +20,8 @@ import { UsersComponent } from './components/catalogos/users/users.component';
 import { ContabilidadComponent } from './components/contabilidad/contabilidad.component';
 import { RecursoshumanosComponent } from './components/recursoshumanos/recursoshumanos.component';
 import { AboutComponent } from './components/about/about.component';
-
+import { MapComponent } from './components/map/map.component';
+import { GoogleMapsModule, GoogleMap } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AboutComponent } from './components/about/about.component';
     UsersComponent,
     ContabilidadComponent,
     RecursoshumanosComponent,
-    AboutComponent
+    AboutComponent,
+    MapComponent
   
   ],
   imports: [
@@ -45,9 +47,10 @@ import { AboutComponent } from './components/about/about.component';
     HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+    GoogleMapsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, GoogleMap],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
