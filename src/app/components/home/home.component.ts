@@ -37,11 +37,8 @@ export class HomeComponent implements OnInit, OnDestroy, OnChanges {
       });
   }
 
-  ngOnChanges(): void {
-    this.user = this.auth.user();
-  }
-   // Initialize and add the map
-   initMap() {
+  // Initialize and add the map
+  initMap() {
     try {
       let pos; String
       // Try HTML5 geolocation.
@@ -53,14 +50,14 @@ export class HomeComponent implements OnInit, OnDestroy, OnChanges {
             lng: position.coords.longitude
           };
           console.log(this.uluru)
-          this.map = new google.maps.Map(document.getElementById('map2') as HTMLElement , {
+          this.map = new google.maps.Map(document.getElementById('map2') as HTMLElement, {
             center: this.uluru,
             zoom: 5
           });
           this.infoWindow = new google.maps.InfoWindow;
           this.infoWindow.setPosition(this.uluru);
-          pos = `Usted esta aqui: ${this.uluru.lat} ,  ${this.uluru.lng}`;
-          this.infoWindow.setContent("Usted esta aqui.");
+          pos = `Usted está aquí: ${this.uluru.lat} ,  ${this.uluru.lng}`;
+          this.infoWindow.setContent("Usted está aquí");
           this.infoWindow.open(this.map);
           this.map.setCenter(this.uluru);
         }, () => {
@@ -70,12 +67,11 @@ export class HomeComponent implements OnInit, OnDestroy, OnChanges {
         // Browser doesn't support Geolocation
         this.handleLocationError(false, this.infoWindow, this.map.getCenter());
       }
-      
+
     } catch (e) {
-      console.log('initMap: ', e );
+      console.log('initMap: ', e);
     }
   }
-
 
   handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
@@ -86,9 +82,12 @@ export class HomeComponent implements OnInit, OnDestroy, OnChanges {
     infoWindow.open(this.map);
   }
 
- 
   ngOnInit() {
-    this.initMap()
+    this.initMap();
+    this.user = this.auth.user();
+  }
+
+  ngOnChanges(): void {
     this.user = this.auth.user();
   }
 
