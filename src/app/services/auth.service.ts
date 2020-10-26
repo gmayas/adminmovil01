@@ -8,6 +8,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs-compat/add/operator/takeUntil';
 import * as _ from "lodash";
 import { ToastrService } from 'ngx-toastr';
+import * as bcrypt from 'bcryptjs';
 //
 
 @Injectable({
@@ -56,7 +57,12 @@ export class AuthService {
       })
     };
 
-    return this.http.post(environment.api_url + '/authuser/signin', { emailuser, passworduser })
+    
+    let passwordEnc = passworduser; //this.encrypPassword(passworduser);
+  
+    console.log("passwordEnc:", passwordEnc)
+
+    return this.http.post(environment.api_url + '/authuser/signin', { emailuser, passwordEnc })
       .pipe(map((user: any) => {
         if (!user.success) { this.logout(); return Promise.reject(user); }
         localStorage.setItem('jwtToken', user.token);
@@ -79,9 +85,11 @@ export class AuthService {
     const dataUser = {
       emailuser: _.get(dataIn, 'emailuser'),
       nameuser: _.get(dataIn, 'nameuser'),
-      passworduser: _.get(dataIn, 'password'),
+      passworduser: this.encrypPassword(_.get(dataIn, 'password')),
       typeiduser: _.get(dataIn, 'typeiduser')
     }
+
+    console.log('dataUser:', dataUser);
     return this.http.post(environment.api_url + '/authuser/signup', dataUser)
       .pipe(map((user: any) => {
         if (!user.success) { this.logout(); return Promise.reject(user) };
@@ -136,4 +144,14 @@ export class AuthService {
       console.log('error profile: ', e)
     }
   }
+
+  encrypPassword (password: string) {
+    try{
+      const salt =  bcrypt.genSaltSync(10);
+      return bcrypt.hashSync(password, salt);
+    } catch (e) {
+        console.log('Encryption error (encrypPassword)', e);   
+        return 'Encryption error (encrypPassword).';
+    }
+ };
 }
