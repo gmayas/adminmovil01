@@ -9,6 +9,7 @@ import 'rxjs-compat/add/operator/takeUntil';
 import * as _ from "lodash";
 import { ToastrService } from 'ngx-toastr';
 import * as bcrypt from 'bcryptjs';
+import { Base64 } from 'js-base64';
 //
 
 @Injectable({
@@ -58,7 +59,7 @@ export class AuthService {
     };
 
     
-    let passwordEnc = passworduser; //this.encrypPassword(passworduser);
+    let passwordEnc = this.encrypPassword(passworduser);
   
     console.log("passwordEnc:", passwordEnc)
 
@@ -144,11 +145,10 @@ export class AuthService {
       console.log('error profile: ', e)
     }
   }
-
+  
   encrypPassword (password: string) {
     try{
-      const salt =  bcrypt.genSaltSync(10);
-      return bcrypt.hashSync(password, salt);
+     return Base64.encode(password); 
     } catch (e) {
         console.log('Encryption error (encrypPassword)', e);   
         return 'Encryption error (encrypPassword).';
